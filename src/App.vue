@@ -1,9 +1,11 @@
 <template>
   <HeaderLacen />
   <router-view></router-view>
+  <FooterLacen />
 </template>
 
 <script>
+  import FooterLacen from './components/FooterLacen.vue';
   import HeaderLacen from './components/HeaderLacen.vue';
 
   export default {
@@ -11,6 +13,7 @@
     
     components: {
       HeaderLacen,
+      FooterLacen
     },
 
     data: () => ({
