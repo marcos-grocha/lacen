@@ -2,14 +2,16 @@
   <div class="homepage">
     <header class="header">
       <div class="logo">
-        <h1>LACEN</h1>
+        <router-link to="/" @click="scrollToTop">
+          <h1>LACEN</h1>
+        </router-link>
       </div>
 
       <nav class="navigation">
         <ul>
-          <li><a href="#">Institucional</a></li>
+          <li><a href="/institucional">Institucional</a></li>
           <li><a href="#latest-news" @click.prevent="scrollToSection('latest-news')">Notícias</a></li>
-          <li><a href="#">Profissionais</a></li>
+          <li><a href="/professional">Profissionais</a></li>
           <li><a href="#faq-section" @click.prevent="scrollToSection('faq-section')">Perguntas Frequentes</a></li>
           <li><a href="#contact-section" @click.prevent="scrollToSection('contact-section')">Contato</a></li>
         </ul>
@@ -70,6 +72,11 @@
     font-weight: bold;
     color: #000;
     margin: 0;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: inherit;
   }
 
   .navigation ul {
