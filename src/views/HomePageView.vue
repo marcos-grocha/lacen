@@ -4,6 +4,7 @@
       <HeroLacen />
       <LatestNewsLacen />
       <FAQLacen />
+      <ContactLacen />
     </main>
   </div>
 </template>
@@ -14,6 +15,7 @@
   import HeroLacen from '@/components/HeroLacen.vue';
   import LatestNewsLacen from '@/components/LatestNewsLacen.vue';
   import FAQLacen from '@/components/FAQLacen.vue';
+  import ContactLacen from '@/components/ContactLacen.vue';
 
   export default defineComponent({
     name: 'HomePageView',
@@ -21,7 +23,8 @@
     components: {
       HeroLacen,
       LatestNewsLacen,
-      FAQLacen
+      FAQLacen,
+      ContactLacen
     }
   });
 </script>
