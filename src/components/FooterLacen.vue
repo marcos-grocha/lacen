@@ -1,34 +1,34 @@
 <template>
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-gallery">
-        <div class="gallery-item" v-for="n in 4" :key="n">
-          <svg width="100%" height="100%" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="#6B7280" />
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff">
-              <tspan x="50%" dy="0">Imagem</tspan>
-            </text>
-          </svg>
+  <div class="homepage">
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-gallery">
+          <div class="gallery-item" v-for="n in 4" :key="n">
+            <svg width="100%" height="100%" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#6B7280" />
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff">
+                <tspan x="50%" dy="0">Imagem</tspan>
+              </text>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="footer-logo">
-        <h2>LACEN</h2>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <h2>LACEN</h2>
+        </div>
+        <div class="copyright">
+          2025 | Governo do Estado
+        </div>
+    
+        <div class="footer-links">
+          <a href="#">Lorem</a>
+          <a href="#">Lorem</a>
+          <a href="#">Lorem</a>
+        </div>
       </div>
-
-      <div class="copyright">
-        2025 | Governo do Estado
-      </div>
-      
-      <div class="footer-links">
-        <a href="#">Lorem</a>
-        <a href="#">Lorem</a>
-        <a href="#">Lorem</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script setup>
