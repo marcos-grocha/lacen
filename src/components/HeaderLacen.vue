@@ -4,15 +4,17 @@
       <div class="logo">
         <h1>LACEN</h1>
       </div>
+
       <nav class="navigation">
         <ul>
           <li><a href="#">Institucional</a></li>
-          <li><a href="#">Notícias</a></li>
+          <li><a href="#latest-news" @click.prevent="scrollToSection('latest-news')">Notícias</a></li>
           <li><a href="#">Profissionais</a></li>
-          <li><a href="#">Perguntas Frequentes</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#faq-section" @click.prevent="scrollToSection('faq-section')">Perguntas Frequentes</a></li>
+          <li><a href="#contact-section" @click.prevent="scrollToSection('contact-section')">Contato</a></li>
         </ul>
       </nav>
+      
       <div class="actions">
         <button class="btn-cadastro">CADASTRE AMOSTRA</button>
         <button class="btn-user">
@@ -27,7 +29,13 @@
 </template>
 
 <script setup>
-  // Não precisa de lógica por enquanto
+  function scrollToSection(section) {
+    const element = document.querySelector(`.${section}`);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
 <style scoped>
