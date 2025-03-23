@@ -2,32 +2,62 @@
   <div class="homepage">
     <header class="header">
       <div class="logo">
-        <h1>LACEN</h1>
+        <router-link to="/" @click="scrollToTop">
+          <h1>LACEN</h1>
+        </router-link>
       </div>
+
       <nav class="navigation">
         <ul>
-          <li><a href="#">Institucional</a></li>
-          <li><a href="#">Notícias</a></li>
-          <li><a href="#">Profissionais</a></li>
-          <li><a href="#">Perguntas Frequentes</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="/institucional">Institucional</a></li>
+          <li><a href="#latest-news" @click.prevent="scrollToSection('latest-news')">Notícias</a></li>
+          <li><a href="/professional">Profissionais</a></li>
+          <li><a href="#faq-section" @click.prevent="scrollToSection('faq-section')">Perguntas Frequentes</a></li>
+          <li><a href="#contact-section" @click.prevent="scrollToSection('contact-section')">Contato</a></li>
         </ul>
       </nav>
+      
       <div class="actions">
-        <button class="btn-cadastro">CADASTRE AMOSTRA</button>
-        <button class="btn-user">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </button>
+        <template v-if="isLoggedIn">
+          <button class="btn-cadastro">CADASTRE AMOSTRA</button>
+
+          <button class="btn-user" @click="logout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+        </template>
+
+        <template v-else>
+          <a href="#" class="btn-create-account">Criar Conta</a>
+          <button class="btn-login" @click="login">LOGIN</button>
+        </template>
       </div>
     </header>
   </div>
 </template>
 
 <script setup>
-  // Não precisa de lógica por enquanto
+  import { ref } from 'vue';
+
+  const isLoggedIn = ref(false); // Inicialmente deslogado
+  
+  function login() {
+    isLoggedIn.value = true;
+  }
+  
+  function logout() {
+    isLoggedIn.value = false;
+  }
+
+  function scrollToSection(section) {
+    const element = document.querySelector(`.${section}`);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
 <style scoped>
@@ -42,6 +72,11 @@
     font-weight: bold;
     color: #000;
     margin: 0;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: inherit;
   }
 
   .navigation ul {
@@ -80,5 +115,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .btn-create-account {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+
+  .btn-login {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
   }
 </style>

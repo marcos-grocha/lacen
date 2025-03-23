@@ -2,18 +2,21 @@
   <HeaderLacen />
   <router-view></router-view>
   <FooterLacen />
+  <ScrollToTopButton />
 </template>
 
 <script>
   import FooterLacen from './components/FooterLacen.vue';
   import HeaderLacen from './components/HeaderLacen.vue';
+  import ScrollToTopButton from './components/ScrollToTopButton.vue';
 
   export default {
     name: 'App',
     
     components: {
       HeaderLacen,
-      FooterLacen
+      FooterLacen,
+      ScrollToTopButton
     },
 
     data: () => ({
