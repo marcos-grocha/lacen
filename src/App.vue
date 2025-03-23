@@ -1,49 +1,26 @@
 <template>
-  <HeaderLacen />
-  <router-view></router-view>
-  <FooterLacen />
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-  import FooterLacen from './components/FooterLacen.vue';
-  import HeaderLacen from './components/HeaderLacen.vue';
+import HelloWorld from './components/HelloWorld.vue'
 
-  export default {
-    name: 'App',
-    
-    components: {
-      HeaderLacen,
-      FooterLacen
-    },
-
-    data: () => ({
-      //
-    }),
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
   }
+}
 </script>
 
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0.5rem;
-  }
-
-  a {
-    color: #333;
-  }
-
-  section {
-    margin: 2rem 0;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
