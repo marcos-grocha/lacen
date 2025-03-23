@@ -2,19 +2,23 @@
   <div class="homepage">
     <main>
       <HeroLacen />
+      <LatestNewsLacen />
     </main>
   </div>
 </template>
   
 <script>
   import { defineComponent } from 'vue';
+  
   import HeroLacen from '@/components/HeroLacen.vue';
+  import LatestNewsLacen from '@/components/LatestNewsLacen.vue';
 
   export default defineComponent({
     name: 'HomePageView',
 
     components: {
-      HeroLacen
+      HeroLacen,
+      LatestNewsLacen
     }
   });
 </script>
