@@ -10,10 +10,10 @@
       <nav class="navigation">
         <ul>
           <li><a href="/institucional">Institucional</a></li>
-          <li><a href="#latest-news" @click.prevent="scrollToSection('latest-news')">Notícias</a></li>
+          <li><a href="/news">Notícias</a></li>
           <li><a href="/professional">Profissionais</a></li>
-          <li><a href="#faq-section" @click.prevent="scrollToSection('faq-section')">Perguntas Frequentes</a></li>
-          <li><a href="#contact-section" @click.prevent="scrollToSection('contact-section')">Contato</a></li>
+          <li><a href="/faq">Perguntas Frequentes</a></li>
+          <li><a href="/contact">Contato</a></li>
         </ul>
       </nav>
       
@@ -49,14 +49,6 @@
   
   function logout() {
     isLoggedIn.value = false;
-  }
-
-  function scrollToSection(section) {
-    const element = document.querySelector(`.${section}`);
-
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
   }
 </script>
 
