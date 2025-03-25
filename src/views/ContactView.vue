@@ -1,6 +1,9 @@
 <template>
-  <h3 style="text-align: center;">Contato</h3>
+  <div class="homepage">
+    <ContactLacen />
+  </div>
 </template>
 
 <script setup>
+  import ContactLacen from '@/components/ContactLacen.vue';
 </script>
