@@ -1,5 +1,7 @@
 # Lacen - Governo do Estado de Sergipe
-Projeto front-end em desenvolvimento para a matéria de Residência de Software I
+- Projeto acadêmico front-end em desenvolvimento para a matéria de Residência de Software I.
+- Trata-se de uma parceria da Universidade Tiradentes com a Fundação de Saúde Parreiras Horta - FSPH.
+- O objetivo é criar o website do Laboratório Central do Estado de Sergipe.
 
 ---
 
