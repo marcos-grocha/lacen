@@ -3,6 +3,11 @@
   <router-view></router-view>
   <FooterLacen />
   <ScrollToTopButton />
+  <VLibras 
+    :position="'left'" 
+    :avatar="'random'" 
+    :opacity="1.0" 
+  />
 </template>
 
 <script>
