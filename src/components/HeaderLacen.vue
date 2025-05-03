@@ -54,6 +54,8 @@
 
 <style scoped>
   .header {
+    background-color: #0291d3; 
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
