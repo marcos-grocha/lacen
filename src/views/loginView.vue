@@ -1,24 +1,8 @@
 <template>
   <div class="app">
     <!-- Conteúdo da página -->
-    <div class="content">
-      <header>
-        <h1>LACEN</h1>
-        <nav>
-          <a href="#">Institucional</a>
-          <a href="#">Notícias</a>
-          <a href="#">Profissionais</a>
-          <a href="#">Perguntas Frequentes</a>
-          <a href="#">Contato</a>
-          <button @click="showModal = true">LOGIN</button>
-        </nav>
-      </header>
-      <main>
-        <h2>Bibendum sit aliqua</h2>
-        <p>Lorem ipsum dolor sit amet...</p>
-      </main>
-    </div>
-
+    <HeaderLacen />
+    <main>
     <!-- Modal com fundo escuro -->
     <div v-if="showModal" class="modal-overlay">
       <div class="modal">
@@ -33,8 +17,24 @@
         <button class="login-button">Entrar</button>
       </div>
     </div>
+  </main>
   </div>
 </template>
+
+<script>
+import HeaderLacen from '@/components/HeaderLacen.vue'
+
+export default {
+  components: {
+    HeaderLacen
+  },
+  data() {
+    return {
+      showModal: false
+    }
+  }
+}
+</script>
 
 <script>
   export default {
