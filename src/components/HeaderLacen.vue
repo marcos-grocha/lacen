@@ -31,7 +31,7 @@
 
         <template v-else>
           <a href="#" class="btn-create-account">Criar Conta</a>
-          <button class="btn-login" @click="login">LOGIN</button>
+          <button class="btn-login" @click="navigateToLogin">LOGIN</button>
         </template>
       </div>
     </header>
@@ -40,15 +40,24 @@
 
 <script setup>
   import { ref } from 'vue';
+  import { useRouter } from 'vue-router';
+
+  // Importando o useRouter para navegação programática
+  const router = useRouter();
 
   const isLoggedIn = ref(false); // Inicialmente deslogado
   
-  function login() {
-    isLoggedIn.value = true;
-  }
+  //function login() {
+    //isLoggedIn.value = true;
+  ///} // não está sendo usado, mas pode ser ultilizado para fazer login programaticamente
   
   function logout() {
     isLoggedIn.value = false;
+  }
+
+  //navegar para a rota de login
+  function navigateToLogin() {
+    router.push('/loginView.vue'); 
   }
 
   function scrollToSection(section) {
@@ -59,6 +68,7 @@
     }
   }
 </script>
+
 
 <style scoped>
   .header {

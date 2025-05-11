@@ -36,16 +36,6 @@ export default {
 }
 </script>
 
-<script>
-  export default {
-    data() {
-      return {
-        showModal: false
-      };
-    }
-  };
-</script>
-
 <style scoped>
 * {
   box-sizing: border-box;
