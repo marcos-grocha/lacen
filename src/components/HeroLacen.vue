@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-  // Não precisa de lógica por enquanto
 </script>
 
 <style scoped>
@@ -41,6 +40,7 @@
   }
 
   .hero-description {
+    padding-left: 10px;
     color: #333;
     max-width: 90%;
   }

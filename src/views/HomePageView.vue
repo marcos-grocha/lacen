@@ -31,9 +31,11 @@
 
 <style scoped>
   main {
+    background-color: #f0f0f0 ;
     display: flex;
     flex-direction: column;
     gap: 4rem;
     padding: 2rem 0;
+    border-radius: 1rem;
   }
 </style>
