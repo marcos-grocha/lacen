@@ -23,7 +23,7 @@
 
 <script>
 import HeaderLacen from '@/components/HeaderLacen.vue'
-
+ 
 export default {
   components: {
     HeaderLacen
