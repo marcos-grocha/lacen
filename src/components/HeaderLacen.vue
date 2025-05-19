@@ -125,4 +125,69 @@
     font-weight: bold;
     cursor: pointer;
   }
+  .btn-cadastro {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .btn-cadastro:hover {
+    color: #0291d3; 
+  }
+
+  .btn-user {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+  }
+
+  .btn-user:hover {
+    color: #0291d3; 
+  }
+
+  .btn-create-account {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+  }
+
+  .btn-create-account:hover {
+    color: #0291d3; 
+  }
+
+  .btn-login {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .btn-login:hover {
+    color: #0291d3; 
+  }
+  .navigation a {
+  text-decoration: none;  
+  color: #333;             
+  font-size: 0.9rem;       
+  transition: color 0.3s;  
+}
+
+.navigation a:hover {
+  color: #0291d3; 
+}
+
 </style>
