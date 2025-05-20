@@ -38,6 +38,7 @@
   }
 
   body {
+    background-color:  #F1F1F1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;

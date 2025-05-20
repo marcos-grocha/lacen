@@ -133,4 +133,16 @@
     color: #333;
     line-height: 1.6;
   }
+  .faq-question {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.faq-question:hover {
+  color: #0291d3; 
+}
+
 </style>
