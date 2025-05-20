@@ -9,11 +9,11 @@
 
       <nav class="navigation">
         <ul>
-          <li><a href="/institucional">Institucional</a></li>
-          <li><a href="/news">Notícias</a></li>
-          <li><a href="/professional">Profissionais</a></li>
-          <li><a href="/faq">Perguntas Frequentes</a></li>
-          <li><a href="/contact">Contato</a></li>
+          <li> <router-link to="/institucional">Institucional</router-link></li>
+          <li> <router-link to="/news">Notícias</router-link></li>
+          <li> <router-link to="/professional">Profissionais</router-link></li>
+          <li> <router-link to="/faq">Perguntas Frequentes</router-link></li>
+          <li> <router-link to="/contact">Contato</router-link></li>
         </ul>
       </nav>
       
@@ -164,7 +164,6 @@
   .btn-create-account:hover {
     color: #0291d3; 
   }
-
   .btn-login {
     background-color: #f0f0f0;
     border: none;
@@ -185,9 +184,44 @@
   font-size: 0.9rem;       
   transition: color 0.3s;  
 }
-
 .navigation a:hover {
   color: #0291d3; 
 }
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .navigation ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .navigation a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .btn-cadastro,
+  .btn-login {
+    width: 100%;
+  }
 
+  .btn-create-account {
+    width: 100%;
+    text-align: center;
+  }
+}
+.navigation .router-link-active {
+  color: #0291d3;
+  font-weight: bold;
+}
 </style>
