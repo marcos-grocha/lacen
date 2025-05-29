@@ -36,6 +36,20 @@
       </div>
     </header>
   </div>
+
+  <!--<div class="login-modal-overlay">
+  <div class="login-modal">
+    <button class="login-modal-close">×</button>
+    <h2>Fazer login</h2>
+    <p>Donec auctor lobortis metus</p>
+    <label for="email">E-mail</label>
+    <input id="email" type="email" placeholder="Digite seu e-mail" />
+    <label for="password">Senha</label>
+    <input id="password" type="password" placeholder="Digite sua senha" />
+    <a href="#" class="login-modal-forgot-password">Esqueceu sua senha?</a>
+    <button class="login-modal-button">Entrar</button>
+  </div>
+  </div>-->
 </template>
 
 <script setup>
@@ -125,4 +139,87 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+/* css login page joao gabriel inicio*/
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 24, 39, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.login-modal {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.login-modal h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.login-modal p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-modal label {
+  display: block;
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.login-modal input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f3f4f6;
+}
+
+.login-modal-forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #555;
+  text-decoration: none;
+}
+
+.login-modal-button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* css login page joao gabriel fim */
 </style>
