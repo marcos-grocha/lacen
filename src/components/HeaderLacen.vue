@@ -1,136 +1,414 @@
 <template>
-  <div class="homepage">
+  <div class="header-wrapper">
     <header class="header">
-      <div class="logo">
-        <router-link to="/" @click="scrollToTop">
-          <h1>LACEN</h1>
-        </router-link>
-      </div>
+      <div class="header-container">
+        <div class="logo">
+          <router-link to="/" @click="scrollToTop">
+            <div class="logo-content">
+              <div class="logo-icon">
+                <!-- <img src="../assets/img/logo/logo-fsph-govse-c-fundo.png" alt="FSPH Logo" class="logo-image" /> -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="8" fill="#0291d3"/>
+                  <path d="M8 12h16v2H8v-2zm0 4h16v2H8v-2zm0 4h12v2H8v-2z" fill="white"/>
+                </svg>
+              </div>
+              <h1 class="logo-text">LACEN</h1>
+            </div>
+          </router-link>
+        </div>
 
-      <nav class="navigation">
-        <ul>
-          <li><a href="/institucional">Institucional</a></li>
-          <li><a href="/news">Notícias</a></li>
-          <li><a href="/professional">Profissionais</a></li>
-          <li><a href="/faq">Perguntas Frequentes</a></li>
-          <li><a href="/contact">Contato</a></li>
-        </ul>
-      </nav>
-      
-      <div class="actions">
-        <template v-if="isLoggedIn">
-          <button class="btn-cadastro">CADASTRE AMOSTRA</button>
+        <nav class="navigation" :class="{ 'mobile-open': mobileMenuOpen }">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="/institucional" class="nav-link">Institucional</a>
+            </li>
+            <li class="nav-item">
+              <a href="/news" class="nav-link">Notícias</a>
+            </li>
+            <li class="nav-item">
+              <a href="/professional" class="nav-link">Profissionais</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-link">Perguntas Frequentes</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact" class="nav-link">Contato</a>
+            </li>
+          </ul>
+        </nav>
+        
+        <div class="actions">
+          <template v-if="isLoggedIn">
+            <button class="btn-primary btn-sample">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14,2 14,8 20,8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10,9 9,9 8,9"></polyline>
+              </svg>
+              Cadastrar Amostra
+            </button>
 
-          <button class="btn-user" @click="logout">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
+            <div class="user-menu">
+              <button class="btn-user" @click="toggleUserMenu">
+                <div class="user-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chevron">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              
+              <div class="user-dropdown" :class="{ 'show': userMenuOpen }">
+                <a href="#" class="dropdown-item">Meu Perfil</a>
+                <a href="#" class="dropdown-item">Configurações</a>
+                <hr class="dropdown-divider">
+                <button @click="logout" class="dropdown-item logout-btn">Sair</button>
+              </div>
+            </div>
+          </template>
+
+          <template v-else>
+            <a href="#" class="btn-secondary">Criar Conta</a>
+            <button class="btn-primary" @click="openModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                <polyline points="10 17 15 12 10 7"></polyline>
+                <line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              Entrar
+            </button>
+          </template>
+
+          <button class="mobile-menu-btn" @click="toggleMobileMenu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
-        </template>
-
-        <template v-else>
-          <a href="#" class="btn-create-account">Criar Conta</a>
-          <button class="btn-login" @click="openModal">LOGIN</button>
-        </template>
+        </div>
       </div>
     </header>
   </div>
 
-  <div v-if="showModal" class="login-modal-overlay" @click="closeModal">
-    <div class="login-modal" @click.stop>
-      <button class="login-modal-close" @click="closeModal">×</button>
-      <h2>Fazer login</h2>
-      <label for="email">E-mail</label>
-      <input id="email" type="email" placeholder="Digite seu e-mail" v-model="email" />
-      <label for="password">Senha</label>
-      <input id="password" type="password" placeholder="Digite sua senha" v-model="password" />
-      <a href="#" class="login-modal-forgot-password">Esqueceu sua senha?</a>
-      <button class="login-modal-button" @click="performLogin">Entrar</button>
+  <!-- Modal de Login -->
+  <Transition name="modal">
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-container" @click.stop>
+        <div class="modal-header">
+          <h2 class="modal-title">Bem-vindo de volta</h2>
+          <p class="modal-subtitle">Faça login em sua conta</p>
+          <button class="modal-close" @click="closeModal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <form class="modal-form" @submit.prevent="performLogin">
+          <div class="form-group">
+            <label for="email" class="form-label">E-mail</label>
+            <div class="input-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="input-icon">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input 
+                id="email" 
+                type="email" 
+                placeholder="Digite seu e-mail" 
+                v-model="email" 
+                class="form-input"
+                required 
+              />
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="password" class="form-label">Senha</label>
+            <div class="input-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="input-icon">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <circle cx="12" cy="16" r="1"></circle>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input 
+                id="password" 
+                type="password" 
+                placeholder="Digite sua senha" 
+                v-model="password" 
+                class="form-input"
+                required 
+              />
+            </div>
+          </div>
+          
+          <div class="form-options">
+            <label class="checkbox-wrapper">
+              <input type="checkbox" v-model="rememberMe">
+              <span class="checkbox-label">Lembrar de mim</span>
+            </label>
+            <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+          </div>
+          
+          <button type="submit" class="btn-login" :disabled="!email || !password">
+            <span v-if="!isLoading">Entrar</span>
+            <div v-else class="loading-spinner"></div>
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, onMounted, onUnmounted } from 'vue';
 
-  const isLoggedIn = ref(false); // Inicialmente deslogado
-  const showModal = ref(false); // Controla a visibilidade do modal
+  const isLoggedIn = ref(false);
+  const showModal = ref(false);
+  const mobileMenuOpen = ref(false);
+  const userMenuOpen = ref(false);
   const email = ref('');
   const password = ref('');
-  
+  const rememberMe = ref(false);
+  const isLoading = ref(false);
+
   function openModal() {
     showModal.value = true;
+    document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
     showModal.value = false;
+    document.body.style.overflow = '';
     email.value = '';
     password.value = '';
+    rememberMe.value = false;
+    isLoading.value = false;
   }
 
-  function performLogin() {
-    // validar e chamar API /to-do
-    console.log('Email:', email.value);
-    console.log('Password:', password.value);
+  function toggleMobileMenu() {
+    mobileMenuOpen.value = !mobileMenuOpen.value;
+  }
 
-    if (email.value && password.value) {
-      isLoggedIn.value = true; // Simulando
+  function toggleUserMenu() {
+    userMenuOpen.value = !userMenuOpen.value;
+  }
+
+  async function performLogin() {
+    if (!email.value || !password.value) return;
+    
+    isLoading.value = true;
+    
+    // Simular API call
+    setTimeout(() => {
+      console.log('Email:', email.value);
+      console.log('Password:', password.value);
+      console.log('Remember me:', rememberMe.value);
+      
+      isLoggedIn.value = true;
+      isLoading.value = false;
       closeModal();
-    }
+    }, 1500);
   }
-  
+
   function logout() {
     isLoggedIn.value = false;
+    userMenuOpen.value = false;
   }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Close dropdowns qd cklica fora!!
+  function handleClickOutside(event) {
+    if (!event.target.closest('.user-menu')) {
+      userMenuOpen.value = false;
+    }
+    if (!event.target.closest('.navigation') && !event.target.closest('.mobile-menu-btn')) {
+      mobileMenuOpen.value = false;
+    }
+  }
+
+  onMounted(() => {
+    document.addEventListener('click', handleClickOutside);
+  });
+
+  onUnmounted(() => {
+    document.removeEventListener('click', handleClickOutside);
+  });
 </script>
 
 <style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+  .header-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(2, 145, 211, 0.1);
+  }
+
   .header {
+    padding: 0.75rem 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
   }
 
-  .logo h1 {
-    font-weight: bold;
-    color: #000;
-    margin: 0;
-  }
+  /* Logo Styles */
+  /* .logo-image {
+    width: 128px;
+    height: 64px;
+    object-fit: contain;
+  } */
 
   .logo a {
     text-decoration: none;
     color: inherit;
   }
 
-  .navigation ul {
+  .logo-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: transform 0.2s ease;
+  }
+
+  .logo-content:hover {
+    transform: translateY(-1px);
+  }
+
+  .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0291d3;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Navigation Styles */
+  .navigation {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 2rem;
     margin: 0;
     padding: 0;
   }
 
-  .navigation a {
+  .nav-link {
     text-decoration: none;
-    color: #333;
+    color: #374151;
     font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.2s ease;
   }
 
+  .nav-link:hover {
+    color: #0291d3;
+    transform: translateY(-1px);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0291d3, #06b6d4);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Actions Styles */
   .actions {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  .btn-cadastro {
-    background-color: #f0f0f0;
+  .btn-primary {
+    background: linear-gradient(135deg, #0291d3, #0369a1);
+    color: white;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(2, 145, 211, 0.3);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #0369a1, #0291d3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(2, 145, 211, 0.4);
+  }
+
+  .btn-secondary {
+    text-decoration: none;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    background: rgba(240, 240, 240, 0.7);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(240, 240, 240, 1);
+    color: #0291d3;
+    transform: translateY(-1px);
+  }
+
+  .btn-sample {
+    font-size: 0.8rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* User Menu Styles */
+  .user-menu {
+    position: relative;
   }
 
   .btn-user {
@@ -139,100 +417,411 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-user:hover {
+    background: rgba(240, 240, 240, 0.8);
+  }
+
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0291d3, #06b6d4);
+    display: flex;
+    align-items: center;
     justify-content: center;
+    color: white;
   }
 
-  .btn-create-account {
+  .chevron {
+    transition: transform 0.2s ease;
+    color: #6b7280;
+  }
+
+  .user-menu.show .chevron {
+    transform: rotate(180deg);
+  }
+
+  .user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+  }
+
+  .user-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: #374151;
     text-decoration: none;
-    color: #333;
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-  }
-
-  .btn-login {
-    background-color: #f0f0f0;
+    font-size: 0.875rem;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
+    background: none;
+    text-align: left;
     cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Roboto', sans-serif;
   }
 
-  .login-modal-overlay {
+  .dropdown-item:hover {
+    background: rgba(2, 145, 211, 0.05);
+    color: #0291d3;
+  }
+
+  .dropdown-item:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .dropdown-item:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+
+  .dropdown-divider {
+    margin: 0.5rem 0;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .logout-btn {
+    color: #dc2626;
+  }
+
+  .logout-btn:hover {
+    background: rgba(220, 38, 38, 0.05);
+    color: #dc2626;
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    color: #374151;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background: rgba(240, 240, 240, 0.8);
+    color: #0291d3;
+  }
+
+  /* Modal Styles */
+  .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(17, 24, 39, 0.7);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    padding: 1rem;
   }
-  .login-modal {
-    background-color: white;
-    padding: 30px;
+
+  .modal-container {
+    background: white;
     border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
-  .login-modal-close {
+
+  .modal-header {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, rgba(2, 145, 211, 0.05), rgba(6, 182, 212, 0.05));
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .modal-subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .modal-close {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 1rem;
+    right: 1rem;
     background: none;
     border: none;
-    font-size: 26px;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    color: #6b7280;
+    transition: all 0.2s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #374151;
+  }
+
+  /* Form Styles */
+  .modal-form {
+    padding: 0 2rem 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    background: #f9fafb;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #0291d3;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(2, 145, 211, 0.1);
+  }
+
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
   }
-  .login-modal h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
+
+  .checkbox-wrapper input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #0291d3;
   }
-  .login-modal p {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #555;
+
+  .checkbox-label {
+    font-size: 0.875rem;
+    color: #374151;
+    font-family: 'Roboto', sans-serif;
   }
-  .login-modal label {
-    display: block;
-    font-size: 12px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-  }
-  .login-modal input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background-color: #f3f4f6;
-    box-sizing: border-box;
-  }
-  .login-modal-forgot-password {
-    display: block;
-    text-align: right;
-    font-size: 12px;
-    margin-top: 10px;
-    color: #555;
+
+  .forgot-password {
+    color: #0291d3;
     text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    font-family: 'Roboto', sans-serif;
   }
-  .login-modal-button {
-    margin-top: 20px;
+
+  .forgot-password:hover {
+    color: #0369a1;
+  }
+
+  .btn-login {
     width: 100%;
-    padding: 12px;
-    background-color: black;
+    padding: 1rem;
+    background: linear-gradient(135deg, #0291d3, #0369a1);
     color: white;
     border: none;
-    border-radius: 9999px;
-    font-weight: bold;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Roboto', sans-serif;
   }
-  .login-modal-button:hover {
-    background-color: #333;
+
+  .btn-login:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0369a1, #0291d3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(2, 145, 211, 0.4);
+  }
+
+  .btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Modal Transitions */
+  .modal-enter-active,
+  .modal-leave-active {
+    transition: all 0.3s ease;
+  }
+
+  .modal-enter-from,
+  .modal-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 0 1rem;
+    }
+    
+    .navigation {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid rgba(2, 145, 211, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .navigation.mobile-open {
+      display: block;
+    }
+    
+    .nav-list {
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem;
+    }
+    
+    .nav-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-item:last-child {
+      border-bottom: none;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 1rem 0;
+    }
+    
+    .mobile-menu-btn {
+      display: block;
+    }
+    
+    .actions {
+      gap: 0.5rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
+    
+    .logo-text {
+      font-size: 1.25rem;
+    }
+    
+    .modal-container {
+      margin: 1rem;
+      max-width: none;
+    }
+    
+    .modal-header {
+      padding: 1.5rem;
+    }
+    
+    .modal-form {
+      padding: 0 1.5rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .actions .btn-secondary {
+      display: none;
+    }
+    
+    .form-options {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
   }
 </style>
