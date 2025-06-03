@@ -113,22 +113,6 @@
         </div>
       </div>
 
-      <!-- Gallery Section -->
-      <div class="footer-gallery">
-        <h3 class="gallery-heading">Galeria de Imagens</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item" v-for="n in 6" :key="n">
-            <div class="gallery-placeholder">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21,15 16,10 5,21"></polyline>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Newsletter Section -->
       <div class="newsletter-section">
         <div class="newsletter-content">
@@ -383,52 +367,6 @@ async function subscribeNewsletter() {
     margin-top: 0.125rem;
     color: #0291d3;
     flex-shrink: 0;
-  }
-
-  /* Gallery Section */
-  .footer-gallery {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(2, 145, 211, 0.1);
-  }
-
-  .gallery-heading {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 1.5rem 0;
-    text-align: center;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-  }
-
-  .gallery-item {
-    aspect-ratio: 1;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #94a3b8;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-item:hover .gallery-placeholder {
-    background: linear-gradient(135deg, #0291d3, #0369a1);
-    color: white;
-    transform: scale(1.05);
   }
 
   /* Newsletter Section */
