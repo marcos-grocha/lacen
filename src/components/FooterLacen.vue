@@ -76,13 +76,13 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Av. Murilo Dantas, 300 - Farolândia<br>Aracaju - SE, 49000-000</span>
+                <span>Rua Campo do Brito, 551<br>Bairro Santos Dumont<br>Aracaju - SE, 49037-120</span>
               </div>
               <div class="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
-                <span>(79) 3218-1234</span>
+                <span>(79) 3259-8100</span>
               </div>
               <div class="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -90,6 +90,13 @@
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
                 <span>contato@lacen.se.gov.br</span>
+              </div>
+              <div class="contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                  <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                </svg>
+                <span>Segunda a sexta: 8h às 17h<br>Plantão 24h para emergências</span>
               </div>
             </div>
           </div>
