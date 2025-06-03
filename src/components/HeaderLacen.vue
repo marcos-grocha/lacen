@@ -6,11 +6,7 @@
           <router-link to="/" @click="scrollToTop">
             <div class="logo-content">
               <div class="logo-icon">
-                <!-- <img src="../assets/img/logo/logo-fsph-govse-c-fundo.png" alt="FSPH Logo" class="logo-image" /> -->
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="8" fill="#0291d3"/>
-                  <path d="M8 12h16v2H8v-2zm0 4h16v2H8v-2zm0 4h12v2H8v-2z" fill="white"/>
-                </svg>
+                <img src="../assets/img/logo/lacen-marcos.png" alt="FSPH Logo" class="logo-image" />
               </div>
               <h1 class="logo-text">LACEN</h1>
             </div>
@@ -273,11 +269,11 @@
   }
 
   /* Logo Styles */
-  /* .logo-image {
-    width: 128px;
+  .logo-image {
+    width: 64px;
     height: 64px;
     object-fit: contain;
-  } */
+  }
 
   .logo a {
     text-decoration: none;
