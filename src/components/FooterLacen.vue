@@ -1,7 +1,6 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <!-- Main Footer Content -->
       <div class="footer-main">
         <!-- Brand Section -->
         <div class="footer-brand">
@@ -9,12 +8,7 @@
             <div class="logo-content">
               <div class="logo-icon">
                 <img src="../assets/img/logo/logo-fsph-govse-s-fundo.png" alt="FSPH Logo" class="logo-image">
-                <!-- <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="40" rx="12" fill="#0291d3"/>
-                  <path d="M10 15h20v2.5H10v-2.5zm0 5h20v2.5H10v-2.5zm0 5h15v2.5H10v-2.5z" fill="white"/>
-                </svg> -->
               </div>
-              <!-- <h2 class="logo-text">LACEN</h2> -->
             </div>
           </div>
           <p class="footer-description">
@@ -53,17 +47,6 @@
         <!-- Links Section -->
         <div class="footer-links">
           <div class="footer-column">
-            <h3 class="footer-heading">Institucional</h3>
-            <ul class="footer-nav">
-              <li><a href="#" class="footer-link">Sobre o LACEN</a></li>
-              <li><a href="#" class="footer-link">História</a></li>
-              <li><a href="#" class="footer-link">Missão e Valores</a></li>
-              <li><a href="#" class="footer-link">Equipe</a></li>
-              <li><a href="#" class="footer-link">Estrutura</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
             <h3 class="footer-heading">Serviços</h3>
             <ul class="footer-nav">
               <li><a href="#" class="footer-link">Análises Clínicas</a></li>
@@ -93,7 +76,7 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Av Murilo Dantas, 300 - Farolândia<br>Aracaju - SE, 49000-000</span>
+                <span>Av. Murilo Dantas, 300 - Farolândia<br>Aracaju - SE, 49000-000</span>
               </div>
               <div class="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -113,11 +96,10 @@
         </div>
       </div>
 
-      <!-- Bottom Footer -->
       <div class="footer-bottom">
         <div class="footer-bottom-content">
           <div class="copyright">
-            <p>&copy; 2025 LACEN - Laboratório Central de Saúde Pública</p>
+            <p>&copy; 2025 LACEN</p>
             <p>Governo do Estado de Sergipe</p>
           </div>
           
