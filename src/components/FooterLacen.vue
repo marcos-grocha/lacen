@@ -113,29 +113,6 @@
         </div>
       </div>
 
-      <!-- Newsletter Section -->
-      <div class="newsletter-section">
-        <div class="newsletter-content">
-          <h3 class="newsletter-heading">Receba nossas atualizações</h3>
-          <p class="newsletter-description">Mantenha-se informado sobre novidades, serviços e comunicados importantes do LACEN.</p>
-          <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
-            <div class="newsletter-input-group">
-              <input 
-                type="email" 
-                placeholder="Digite seu e-mail" 
-                v-model="newsletterEmail"
-                class="newsletter-input"
-                required
-              >
-              <button type="submit" class="newsletter-button" :disabled="!newsletterEmail || isSubscribing">
-                <span v-if="!isSubscribing">Inscrever-se</span>
-                <div v-else class="loading-spinner-small"></div>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
       <!-- Bottom Footer -->
       <div class="footer-bottom">
         <div class="footer-bottom-content">
@@ -165,24 +142,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const newsletterEmail = ref('');
-const isSubscribing = ref(false);
-
-async function subscribeNewsletter() {
-  if (!newsletterEmail.value) return;
-  
-  isSubscribing.value = true;
-  
-  // Simular API call
-  setTimeout(() => {
-    console.log('Newsletter subscription:', newsletterEmail.value);
-    newsletterEmail.value = '';
-    isSubscribing.value = false;
-    // Aqui era bom adicionar uma notificação de sucesso
-  }, 1500);
-}
 </script>
 
 <style scoped>
@@ -369,101 +328,6 @@ async function subscribeNewsletter() {
     flex-shrink: 0;
   }
 
-  /* Newsletter Section */
-  .newsletter-section {
-    padding: 2.5rem 0;
-    background: linear-gradient(135deg, rgba(2, 145, 211, 0.05), rgba(6, 182, 212, 0.05));
-    border-radius: 20px;
-    margin: 2rem 0;
-  }
-
-  .newsletter-content {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .newsletter-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 0.5rem 0;
-  }
-
-  .newsletter-description {
-    color: #64748b;
-    font-size: 0.875rem;
-    margin: 0 0 2rem 0;
-    line-height: 1.6;
-  }
-
-  .newsletter-form {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .newsletter-input-group {
-    display: flex;
-    gap: 0.5rem;
-    background: white;
-    padding: 0.25rem;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(2, 145, 211, 0.1);
-  }
-
-  .newsletter-input {
-    flex: 1;
-    border: none;
-    background: none;
-    padding: 0.875rem 1.25rem;
-    font-size: 0.875rem;
-    outline: none;
-    color: #1e293b;
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .newsletter-input::placeholder {
-    color: #94a3b8;
-  }
-
-  .newsletter-button {
-    background: linear-gradient(135deg, #0291d3, #0369a1);
-    color: white;
-    border: none;
-    padding: 0.875rem 1.5rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .newsletter-button:hover:not(:disabled) {
-    background: linear-gradient(135deg, #0369a1, #0291d3);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(2, 145, 211, 0.4);
-  }
-
-  .newsletter-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .loading-spinner-small {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s linear infinite;
-  }
-
   @keyframes spin {
     to {
       transform: rotate(360deg);
@@ -557,28 +421,6 @@ async function subscribeNewsletter() {
       grid-template-columns: repeat(3, 1fr);
     }
     
-    .newsletter-section {
-      padding: 2rem 1rem;
-      margin: 1.5rem 0;
-    }
-    
-    .newsletter-input-group {
-      flex-direction: column;
-      gap: 0.75rem;
-      padding: 1rem;
-      border-radius: 16px;
-    }
-    
-    .newsletter-input {
-      padding: 1rem;
-      text-align: center;
-    }
-    
-    .newsletter-button {
-      border-radius: 12px;
-      padding: 1rem;
-    }
-    
     .footer-bottom-content {
       flex-direction: column;
       text-align: center;
@@ -605,10 +447,6 @@ async function subscribeNewsletter() {
     
     .logo-text {
       font-size: 1.5rem;
-    }
-    
-    .newsletter-heading {
-      font-size: 1.25rem;
     }
     
     .footer-bottom-links {
