@@ -147,8 +147,8 @@
                 <div class="contact-details">
                   <h5 class="contact-title">Endereço</h5>
                   <p class="contact-text">
-                    Rua Campo do Brito, 551<br>
-                    Bairro Santos Dumont<br>
+                    R. Campo do Brito, 551<br>
+                    Salgado Filho<br>
                     Aracaju - SE, 49037-120
                   </p>
                 </div>

@@ -25,11 +25,67 @@
               <a href="/professional" class="nav-link">Profissionais</a>
             </li>
             <li class="nav-item">
-              <a href="/faq" class="nav-link">Perguntas Frequentes</a>
-            </li>
-            <li class="nav-item">
               <a href="/contact" class="nav-link">Contato</a>
             </li>
+            
+            <!-- Botões mobile - aparecem apenas no menu hamburger -->
+            <div class="mobile-actions">
+              <template v-if="isLoggedIn">
+                <li class="nav-item mobile-action-item">
+                  <button class="nav-link mobile-btn btn-sample-mobile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14,2 14,8 20,8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10,9 9,9 8,9"></polyline>
+                    </svg>
+                    Cadastrar Amostra
+                  </button>
+                </li>
+                <li class="nav-item mobile-action-item">
+                  <a href="#" class="nav-link mobile-profile-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Meu Perfil
+                  </a>
+                </li>
+                <li class="nav-item mobile-action-item">
+                  <a href="#" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    Configurações
+                  </a>
+                </li>
+                <li class="nav-item mobile-action-item mobile-logout">
+                  <button @click="logout" class="nav-link mobile-btn logout-mobile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Sair
+                  </button>
+                </li>
+              </template>
+
+              <template v-else>
+                <li class="nav-item mobile-action-item">
+                  <button @click="openModal" class="nav-link mobile-btn btn-login-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                    Entrar
+                  </button>
+                </li>
+              </template>
+            </div>
           </ul>
         </nav>
         
@@ -69,7 +125,6 @@
           </template>
 
           <template v-else>
-            <a href="#" class="btn-secondary">Criar Conta</a>
             <button class="btn-primary" @click="openModal">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
@@ -177,6 +232,7 @@
 
   function openModal() {
     showModal.value = true;
+    mobileMenuOpen.value = false;
     document.body.style.overflow = 'hidden';
   }
 
@@ -217,6 +273,7 @@
   function logout() {
     isLoggedIn.value = false;
     userMenuOpen.value = false;
+    mobileMenuOpen.value = false;
   }
 
   function scrollToTop() {
@@ -349,6 +406,11 @@
     width: 100%;
   }
 
+  /* Mobile Actions - Hidden on desktop */
+  .mobile-actions {
+    display: none;
+  }
+
   /* Actions Styles */
   .actions {
     display: flex;
@@ -400,6 +462,39 @@
   .btn-sample {
     font-size: 0.8rem;
     padding: 0.6rem 1.2rem;
+  }
+
+  /* Mobile Button Styles */
+  .mobile-btn {
+    background: none !important;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .btn-sample-mobile {
+    color: #0291d3 !important;
+    font-weight: 600;
+  }
+
+  .btn-login-mobile {
+    color: #0291d3 !important;
+    font-weight: 600;
+  }
+
+  .logout-mobile {
+    color: #dc2626 !important;
+  }
+
+  .mobile-profile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   /* User Menu Styles */
@@ -743,6 +838,11 @@
       padding: 0 1rem;
     }
     
+    .actions .btn-primary,
+    .actions .user-menu {
+      display: none;
+    }
+    
     .navigation {
       display: none;
       position: absolute;
@@ -776,19 +876,31 @@
       display: block;
       padding: 1rem 0;
     }
+
+    /* Mobile Actions - Show on mobile */
+    .mobile-actions {
+      display: block;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-action-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .mobile-action-item:last-child {
+      border-bottom: none !important;
+    }
+
+    .mobile-logout {
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(220, 38, 38, 0.1) !important;
+    }
     
     .mobile-menu-btn {
       display: block;
-    }
-    
-    .actions {
-      gap: 0.5rem;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
     }
     
     .logo-text {
@@ -810,14 +922,19 @@
   }
 
   @media (max-width: 480px) {
-    .actions .btn-secondary {
-      display: none;
-    }
-    
     .form-options {
       flex-direction: column;
       gap: 1rem;
       align-items: flex-start;
+    }
+
+    .logo-text {
+      font-size: 1.1rem;
+    }
+
+    .logo-image {
+      width: 48px;
+      height: 48px;
     }
   }
 </style>

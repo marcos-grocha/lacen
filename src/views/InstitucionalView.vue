@@ -2,47 +2,13 @@
   <div class="institucional-container">
     <div class="page-header">
       <div class="header-content">
-        <h1 class="page-title">Fundação de Saúde Parreiras Horta</h1>
+        <h1 class="page-title">Laboratório Central de Saúde Pública</h1>
         <p class="page-subtitle">Conheça nossa história, nossas atividades e nossa estrutura administrativa</p>
       </div>
     </div>
 
     <div class="content-wrapper">
       <div class="content-section">
-        <div class="main-content">
-          <div class="image-container">
-            <div class="placeholder-image">
-              <div class="image-overlay"></div>
-              <div class="image-icon">
-                <svg width="80" height="60" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="8" cy="6" r="2" fill="white"/>
-                  <path d="M2 18L8 12L12 16L22 6V18H2Z" fill="white"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-content">
-            <h2 class="section-title">HISTÓRICO</h2>
-            <div class="intro-text">
-              <p>
-                O Instituto Parreiras Horta, foi criado através da Lei nº 836 de 14 de novembro de 1922,  no governo de Maurício Graccho Cardoso e inaugurado em 05 de maio de 1924, para completar a nova estrutura de saúde pública estadual. O instituto teve como primeiro dirigente o professor Dr. Paulo Parreiras Horta que permaneceu a frente da instituição até 8 de dezembro de 1924...
-              </p>
-              <p class="highlight-text">
-                <button>
-                  <strong>Conheça quem foi Parreiras Horta</strong>
-                </button>
-              </p>
-            </div>
-            
-            <div class="cta-section">
-              <button class="btn btn-primary">
-                Continue lendo todo o histórico
-              </button>
-            </div>
-          </div>
-        </div>
-
         <!-- Seções de texto organizadas em grid -->
         <div class="text-sections">
           <div class="text-block card">
@@ -153,45 +119,7 @@
           </div>
         </div>
 
-        <div class="stats-section">
-          <div class="stats-header">
-            <h3 class="stats-title">Nossos Números</h3>
-            <p class="stats-subtitle">Dados que refletem nosso compromisso com a qualidade</p>
-          </div>
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number">15+</div>
-              <div class="stat-label">Anos de Experiência</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">10k+</div>
-              <div class="stat-label">Exames Mensais</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">Profissionais</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">99%</div>
-              <div class="stat-label">Satisfação</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="footer-gallery">
-          <!-- <h3 class="gallery-heading">Galeria de Imagens</h3> -->
-          <div class="gallery-grid">
-            <div class="gallery-item" v-for="n in 6" :key="n">
-              <div class="gallery-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                  <polyline points="21,15 16,10 5,21"></polyline>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -457,100 +385,6 @@
     color: var(--gray-600);
     margin: 0;
     line-height: 1.5;
-  }
-
-  /* Seção de estatísticas */
-  .stats-section {
-    padding: var(--spacing-12);
-    background: var(--primary-gradient);
-    color: var(--white);
-    text-align: center;
-  }
-
-  .stats-header {
-    margin-bottom: var(--spacing-10);
-  }
-
-  .stats-title {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    margin: 0 0 var(--spacing-3) 0;
-  }
-
-  .stats-subtitle {
-    font-size: var(--text-lg);
-    color: var(--primary-lighter);
-    margin: 0;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-8);
-  }
-
-  .stat-item {
-    text-align: center;
-  }
-
-  .stat-number {
-    font-size: var(--text-5xl);
-    font-weight: var(--font-bold);
-    color: var(--white);
-    margin-bottom: var(--spacing-2);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .stat-label {
-    font-size: var(--text-lg);
-    color: var(--primary-lighter);
-    font-weight: var(--font-medium);
-  }
-
-  /* Gallery Section */
-  .footer-gallery {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(2, 145, 211, 0.1);
-  }
-
-  .gallery-heading {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 1.5rem 0;
-    text-align: center;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-  }
-
-  .gallery-item {
-    aspect-ratio: 1;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #94a3b8;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-item:hover .gallery-placeholder {
-    background: linear-gradient(135deg, #0291d3, #0369a1);
-    color: white;
-    transform: scale(1.05);
   }
 
   @media (max-width: 768px) {
