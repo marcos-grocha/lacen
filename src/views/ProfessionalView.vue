@@ -1,36 +1,115 @@
 <template>
   <div class="professionals-container">
-    <h1 class="professionals-title">Profissionais</h1>
-    <div class="professionals-grid">
-      <div 
-        v-for="professional in professionals" 
-        :key="professional.id" 
-        class="professional-card"
-        :style="{ backgroundImage: `url(${professional.photo})` }"
-        @click="openProfessionalDetails(professional)"
-      >
-        <div class="professional-info">
-          <div class="professional-name">{{ professional.name }}</div>
-          <div class="professional-role">{{ professional.role }}</div>
+    <div class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">Nossa Equipe</h1>
+        <p class="page-subtitle">Conheça os profissionais dedicados que fazem a diferença na saúde pública</p>
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content-section">
+        <div class="intro-section">
+          <h2 class="section-title">Profissionais Especializados</h2>
+          <p class="intro-text">
+            Nossa equipe é composta por profissionais altamente qualificados e comprometidos com a excelência 
+            na prestação de serviços laboratoriais e de saúde pública. Cada membro contribui com sua expertise 
+            para garantir a qualidade e confiabilidade dos nossos resultados.
+          </p>
+        </div>
+
+        <div class="professionals-grid">
+          <div 
+            v-for="professional in professionals" 
+            :key="professional.id" 
+            class="professional-card"
+            @click="openProfessionalDetails(professional)"
+          >
+            <div class="professional-image">
+              <img :src="professional.photo" :alt="professional.name" />
+              <div class="professional-overlay">
+                <div class="overlay-content">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"></path>
+                  </svg>
+                  <span>Ver Perfil</span>
+                </div>
+              </div>
+            </div>
+            <div class="professional-info">
+              <h3 class="professional-name">{{ professional.name }}</h3>
+              <p class="professional-role">{{ professional.role }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- Modal detalhes -->
     <div class="modal-overlay" v-if="showModal" @click.self="closeModal">
       <div class="modal-content">
-        <div class="modal-close" @click="closeModal">✕</div>
+        <button class="modal-close" @click="closeModal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        
         <div class="modal-body">
-          <div class="professional-image">
-            <img :src="selectedProfessional.photo" :alt="selectedProfessional.name">
+          <div class="professional-image-modal">
+            <img :src="selectedProfessional.photo" :alt="selectedProfessional.name" />
           </div>
 
           <div class="professional-details">
-            <h2 class="professional-name">{{ selectedProfessional.name }}</h2>
-            <h3 class="professional-role">{{ selectedProfessional.role }}</h3>
+            <div class="professional-header">
+              <h2 class="professional-name-modal">{{ selectedProfessional.name }}</h2>
+              <h3 class="professional-role-modal">{{ selectedProfessional.role }}</h3>
+            </div>
 
             <div class="professional-bio">
-              <p v-if="selectedProfessional.bio">{{ selectedProfessional.bio }}</p>
-              <p v-else>DEFAULT DO ELSE: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl cursus tellus eget fringilla eget. Diam eu est id ut leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl cursus tellus eget fringilla eget. Diam eu est id ut leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl cursus tellus eget fringilla eget. Diam eu est id ut leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl cursus tellus eget fringilla eget. Diam eu est id ut leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl cursus tellus eget fringilla eget. Diam eu est id ut leo.</p>
+              <h4 class="bio-title">Sobre o Profissional</h4>
+              <p v-if="selectedProfessional.bio" class="bio-text">{{ selectedProfessional.bio }}</p>
+              <p v-else class="bio-text">
+                Profissional dedicado e comprometido com a excelência na prestação de serviços de saúde. 
+                Com formação sólida e experiência prática, contribui significativamente para os objetivos 
+                da nossa instituição, sempre priorizando a qualidade e a segurança nos procedimentos realizados.
+              </p>
+            </div>
+
+            <div class="professional-contact" v-if="selectedProfessional.website || selectedProfessional.email">
+              <h4 class="contact-title">Contato</h4>
+              <div class="contact-links">
+                <a 
+                  v-if="selectedProfessional.website" 
+                  :href="selectedProfessional.website" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="contact-link website-link"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  <span>Site Pessoal</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                  </svg>
+                </a>
+                
+                <a 
+                  v-if="selectedProfessional.email" 
+                  :href="`mailto:${selectedProfessional.email}`"
+                  class="contact-link email-link"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>Email</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -58,263 +137,549 @@
     { 
       id: 1, 
       name: 'Fulano Ciclano 1', 
-      role: 'Biomedico',
-      photo: new URL('@/assets/homem-default.png', import.meta.url).href,
-      bio: 'Profissional especializado em análises clínicas, com mais de 10 anos de experiência.'
+      role: 'Biomédico',
+      photo: new URL('@/assets/img/perfil-user/homem-default.png', import.meta.url).href,
+      bio: 'Profissional especializado em análises clínicas, com mais de 10 anos de experiência na área de diagnóstico laboratorial e controle de qualidade.',
+      website: 'https://exemplo.com',
+      email: 'fulano1@fsph.se.gov.br'
     },
     { 
       id: 2, 
       name: 'Fulano Ciclano 2', 
-      role: 'Biomedico',
-      photo: new URL('@/assets/mulher-default.png', import.meta.url).href,
-      bio: 'Especialista em biologia molecular e microbiologia, com foco em pesquisas inovadoras.'
+      role: 'Biomédica',
+      photo: new URL('@/assets/img/perfil-user/mulher-default.png', import.meta.url).href,
+      bio: 'Especialista em biologia molecular e microbiologia, com foco em pesquisas inovadoras e desenvolvimento de novos métodos diagnósticos.',
+      email: 'fulano2@fsph.se.gov.br'
     },
     { 
       id: 3, 
       name: 'Marcos Guimarães', 
-      role: 'Software Developer',
-      photo: new URL('@/assets/gmarcos-dev.png', import.meta.url).href,
-      bio: 'Software Developer especialista em Ruby on Rails, construindo soluções web através de Desenvolvimento Orientado a Testes (Test Driven Development) e práticas ágeis, garantindo a qualidade do código. Tenho boa familiaridade com Java Spring e, apesar da minha especialização, sou um profissional ávido por conhecimento, determinado, autodidata, adaptável e organizado. Apaixonado pelo processo de aprendizagem em novas tecnologias e motivado a buscar excelência em minhas soluções. Portfólio: https://gmarcos-dev.surge.sh/'
+      role: 'Desenvolvedor de Software',
+      photo: new URL('@/assets/img/perfil-user/gmarcos-dev.png', import.meta.url).href,
+      bio: 'Desenvolvedor especialista em Ruby on Rails, construindo soluções web através de Desenvolvimento Orientado a Testes (TDD) e práticas ágeis. Apaixonado pelo processo de aprendizagem em novas tecnologias e motivado a buscar excelência em suas soluções.',
+      website: 'https://gmarcos-dev.surge.sh/',
+      email: 'gmarcos.dev@gmail.com'
     },
     { 
       id: 4, 
       name: 'Fulano Ciclano 4', 
-      role: 'Biomedico',
+      role: 'Biomédico',
       photo: 'https://via.placeholder.com/300x400',
-      bio: '' 
+      bio: '',
+      email: 'fulano4@fsph.se.gov.br'
     },
     { 
       id: 5, 
       name: 'Fulano Ciclano 5', 
       role: 'Desenvolvedora Front-End',
-      photo: new URL('@/assets/mulher-default.png', import.meta.url).href,
-      bio: 'Desenvolvedor full-stack com experiência em Vue.js, Node.js e bancos de dados SQL/NoSQL.'
+      photo: new URL('@/assets/img/perfil-user/mulher-default.png', import.meta.url).href,
+      bio: 'Desenvolvedora full-stack com experiência em Vue.js, Node.js e bancos de dados SQL/NoSQL, focada em criar interfaces modernas e intuitivas.',
+      website: 'https://portfolio-exemplo.com',
+      email: 'fulano5@fsph.se.gov.br'
     },
     { 
       id: 6, 
       name: 'Fulano Ciclano 6', 
-      role: 'Biomedico',
-      photo: new URL('@/assets/homem-default.png', import.meta.url).href,
-      bio: '' 
+      role: 'Biomédico',
+      photo: new URL('@/assets/img/perfil-user/homem-default.png', import.meta.url).href,
+      bio: '',
+      email: 'fulano6@fsph.se.gov.br'
     },
     { 
       id: 7, 
       name: 'Fulano Ciclano 7', 
-      role: 'Biomedico',
+      role: 'Biomédico',
       photo: 'https://via.placeholder.com/300x400',
-      bio: '' 
+      bio: '',
+      email: 'fulano7@fsph.se.gov.br'
     },
     { 
       id: 8, 
       name: 'Fulano Ciclano 8', 
-      role: 'Biomedico',
-      photo: new URL('@/assets/mulher-default.png', import.meta.url).href,
-      bio: ''
+      role: 'Biomédica',
+      photo: new URL('@/assets/img/perfil-user/mulher-default.png', import.meta.url).href,
+      bio: '',
+      email: 'fulano8@fsph.se.gov.br'
     },
     { 
       id: 9, 
       name: 'Fulano Ciclano 9', 
-      role: 'Biomedico',
-      photo: new URL('@/assets/mulher-default.png', import.meta.url).href,
-      bio: ''
+      role: 'Biomédica',
+      photo: new URL('@/assets/img/perfil-user/mulher-default.png', import.meta.url).href,
+      bio: '',
+      email: 'fulano9@fsph.se.gov.br'
     },
     { 
       id: 10, 
       name: 'Fulano Ciclano 10', 
-      role: 'Biomedico',
+      role: 'Biomédico',
       photo: 'https://via.placeholder.com/300x400',
-      bio: '' 
+      bio: '',
+      email: 'fulano10@fsph.se.gov.br'
     },
     { 
       id: 11, 
       name: 'Fulano Ciclano 11', 
-      role: 'Biomedico',
+      role: 'Biomédico',
       photo: 'https://via.placeholder.com/300x400',
-      bio: '' 
+      bio: '',
+      email: 'fulano11@fsph.se.gov.br'
     },
     { 
       id: 12, 
       name: 'Fulano Ciclano 12', 
-      role: 'Biomedico',
-      photo: new URL('@/assets/homem-default.png', import.meta.url).href,
-      bio: ''
+      role: 'Biomédico',
+      photo: new URL('@/assets/img/perfil-user/homem-default.png', import.meta.url).href,
+      bio: '',
+      email: 'fulano12@fsph.se.gov.br'
     }
   ])
 </script>
 
 <style scoped>
   .professionals-container {
+    min-height: 100vh;
+    background: var(--subtle-gradient);
+  }
+
+  /* Header da página */
+  .page-header {
+    background: var(--primary-gradient);
+    padding: var(--spacing-20) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-title {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-bold);
+    color: var(--white);
+    margin: 0 0 var(--spacing-4) 0;
+    font-family: var(--font-family);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-subtitle {
+    font-size: var(--text-xl);
+    color: var(--primary-lighter);
+    margin: 0;
+    font-weight: var(--font-normal);
+  }
+
+  /* Container principal */
+  .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: var(--spacing-20) var(--spacing-5);
   }
 
-  .professionals-title {
+  .content-section {
+    background: var(--white);
+    border-radius: var(--border-radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Seção de introdução */
+  .intro-section {
+    padding: var(--spacing-10);
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
-    color: #333;
+    background: var(--light-gradient);
+    border-bottom: 1px solid var(--gray-200);
   }
 
+  .section-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--gray-900);
+    margin: 0 0 var(--spacing-4) 0;
+    font-family: var(--font-family);
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -var(--spacing-2);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-gradient);
+    border-radius: var(--border-radius-full);
+  }
+
+  .intro-text {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--gray-700);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Grid de profissionais */
   .professionals-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-8);
+    padding: var(--spacing-10);
   }
 
   .professional-card {
-    position: relative;
-    aspect-ratio: 3/4;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
+    background: var(--white);
+    border-radius: var(--border-radius-xl);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition-all);
     cursor: pointer;
+    border: 1px solid var(--gray-200);
   }
 
   .professional-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .professional-image {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+  }
+
+  .professional-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-transform);
+  }
+
+  .professional-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-gradient);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-opacity);
+  }
+
+  .professional-card:hover .professional-overlay {
+    opacity: 0.9;
+  }
+
+  .professional-card:hover .professional-image img {
     transform: scale(1.05);
   }
 
+  .overlay-content {
+    text-align: center;
+    color: var(--white);
+    font-weight: var(--font-semibold);
+  }
+
+  .overlay-content svg {
+    margin-bottom: var(--spacing-2);
+  }
+
   .professional-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background: rgba(0,0,0,0.5);
-    color: white;
+    padding: var(--spacing-6);
+    text-align: center;
   }
 
   .professional-name {
-    font-weight: bold;
-    font-size: 14px;
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--gray-900);
+    margin: 0 0 var(--spacing-2) 0;
+    font-family: var(--font-family);
   }
 
   .professional-role {
-    font-size: 12px;
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    margin: 0 0 var(--spacing-4) 0;
   }
 
-  /* Daqui pra baixo: Estilos do Modal */
+  .btn-view-profile:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Estilos do Modal */
   .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: var(--z-modal);
+    padding: var(--spacing-4);
   }
 
   .modal-content {
-    background-color: white;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 800px;
+    background-color: var(--white);
+    border-radius: var(--border-radius-2xl);
+    width: 100%;
+    max-width: 900px;
     max-height: 90vh;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-2xl);
+    animation: modalSlideIn 0.3s ease-out;
+  }
+
+  @keyframes modalSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
   .modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 25px;
-    height: 25px;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #333;
-    border-radius: 50%;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    color: var(--gray-600);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 16px;
+    transition: var(--transition-all);
     z-index: 10;
-    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
   }
 
   .modal-close:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--error-color);
+    color: var(--white);
+    border-color: var(--error-color);
+    transform: scale(1.05);
   }
 
   .modal-body {
     display: flex;
-    padding: 25px;
+    padding: var(--spacing-8);
+    gap: var(--spacing-8);
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
-  .professional-image {
-    width: 40%;
-    min-width: 250px;
-    max-width: 300px;
-    margin-right: 25px;
+  .professional-image-modal {
+    position: relative;
+    flex-shrink: 0;
+    width: 300px;
   }
 
-  .professional-image img {
+  .professional-image-modal img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: var(--border-radius-xl);
     object-fit: cover;
     aspect-ratio: 3/4;
+    box-shadow: var(--shadow-lg);
   }
 
   .professional-details {
     flex: 1;
-    overflow: hidden;
+    min-width: 0;
   }
 
-  .professional-details .professional-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
+  .professional-header {
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .professional-details .professional-role {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
+  .professional-name-modal {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    margin: 0 0 var(--spacing-2) 0;
+    color: var(--gray-900);
+    font-family: var(--font-family);
+  }
+
+  .professional-role-modal {
+    font-size: var(--text-xl);
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: var(--font-medium);
   }
 
   .professional-bio {
-    max-height: 400px;
-    overflow-y: auto;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #444;
+    margin-bottom: var(--spacing-6);
   }
 
-  @media (max-width: 1024px) {
-    .professionals-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .bio-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--gray-900);
+    margin: 0 0 var(--spacing-3) 0;
   }
 
+  .bio-text {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin: 0;
+    text-align: justify;
+  }
+
+  .professional-contact {
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .contact-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--gray-900);
+    margin: 0 0 var(--spacing-4) 0;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    transition: var(--transition-all);
+    font-weight: var(--font-medium);
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    color: var(--gray-700);
+  }
+
+  .contact-link:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+  }
+
+  .website-link:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+  }
+
+  .email-link:hover {
+    background: var(--success-color);
+    color: var(--white);
+    border-color: var(--success-color);
+  }
+
+  /* Responsividade */
   @media (max-width: 768px) {
+    .page-title {
+      font-size: var(--text-4xl);
+    }
+    
+    .content-wrapper {
+      padding: var(--spacing-10) var(--spacing-4);
+    }
+    
+    .intro-section,
     .professionals-grid {
-      grid-template-columns: repeat(2, 1fr);
+      padding: var(--spacing-8) var(--spacing-5);
+    }
+    
+    .professionals-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-6);
     }
     
     .modal-body {
       flex-direction: column;
-      padding: 20px;
+      padding: var(--spacing-6);
+      gap: var(--spacing-6);
     }
     
-    .professional-image {
+    .professional-image-modal {
       width: 100%;
       max-width: 250px;
-      margin: 0 auto 20px;
+      margin: 0 auto;
+    }
+
+    .professional-name-modal {
+      font-size: var(--text-2xl);
+    }
+
+    .professional-role-modal {
+      font-size: var(--text-lg);
     }
   }
 
   @media (max-width: 480px) {
+    .page-header {
+      padding: var(--spacing-16) 0;
+    }
+    
+    .page-title {
+      font-size: var(--text-3xl);
+    }
+    
     .professionals-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .intro-section,
+    .professionals-grid {
+      padding: var(--spacing-6) var(--spacing-4);
+    }
+    
+    .modal-body {
+      padding: var(--spacing-4);
+    }
+
+    .professional-image {
+      height: 280px;
     }
   }
 </style>

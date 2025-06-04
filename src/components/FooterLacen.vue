@@ -1,7 +1,6 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <!-- Main Footer Content -->
       <div class="footer-main">
         <!-- Brand Section -->
         <div class="footer-brand">
@@ -9,12 +8,7 @@
             <div class="logo-content">
               <div class="logo-icon">
                 <img src="../assets/img/logo/logo-fsph-govse-s-fundo.png" alt="FSPH Logo" class="logo-image">
-                <!-- <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="40" rx="12" fill="#0291d3"/>
-                  <path d="M10 15h20v2.5H10v-2.5zm0 5h20v2.5H10v-2.5zm0 5h15v2.5H10v-2.5z" fill="white"/>
-                </svg> -->
               </div>
-              <!-- <h2 class="logo-text">LACEN</h2> -->
             </div>
           </div>
           <p class="footer-description">
@@ -53,17 +47,6 @@
         <!-- Links Section -->
         <div class="footer-links">
           <div class="footer-column">
-            <h3 class="footer-heading">Institucional</h3>
-            <ul class="footer-nav">
-              <li><a href="#" class="footer-link">Sobre o LACEN</a></li>
-              <li><a href="#" class="footer-link">História</a></li>
-              <li><a href="#" class="footer-link">Missão e Valores</a></li>
-              <li><a href="#" class="footer-link">Equipe</a></li>
-              <li><a href="#" class="footer-link">Estrutura</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
             <h3 class="footer-heading">Serviços</h3>
             <ul class="footer-nav">
               <li><a href="#" class="footer-link">Análises Clínicas</a></li>
@@ -93,13 +76,13 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Av Murilo Dantas, 300 - Farolândia<br>Aracaju - SE, 49000-000</span>
+                <span>Rua Campo do Brito, 551<br>Bairro Santos Dumont<br>Aracaju - SE, 49037-120</span>
               </div>
               <div class="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
-                <span>(79) 3218-1234</span>
+                <span>(79) 3259-8100</span>
               </div>
               <div class="contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -108,55 +91,22 @@
                 </svg>
                 <span>contato@lacen.se.gov.br</span>
               </div>
+              <div class="contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                  <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                </svg>
+                <span>Segunda a sexta: 8h às 17h<br>Plantão 24h para emergências</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Gallery Section -->
-      <div class="footer-gallery">
-        <h3 class="gallery-heading">Galeria de Imagens</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item" v-for="n in 6" :key="n">
-            <div class="gallery-placeholder">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21,15 16,10 5,21"></polyline>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Newsletter Section -->
-      <div class="newsletter-section">
-        <div class="newsletter-content">
-          <h3 class="newsletter-heading">Receba nossas atualizações</h3>
-          <p class="newsletter-description">Mantenha-se informado sobre novidades, serviços e comunicados importantes do LACEN.</p>
-          <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
-            <div class="newsletter-input-group">
-              <input 
-                type="email" 
-                placeholder="Digite seu e-mail" 
-                v-model="newsletterEmail"
-                class="newsletter-input"
-                required
-              >
-              <button type="submit" class="newsletter-button" :disabled="!newsletterEmail || isSubscribing">
-                <span v-if="!isSubscribing">Inscrever-se</span>
-                <div v-else class="loading-spinner-small"></div>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- Bottom Footer -->
       <div class="footer-bottom">
         <div class="footer-bottom-content">
           <div class="copyright">
-            <p>&copy; 2025 LACEN - Laboratório Central de Saúde Pública</p>
+            <p>&copy; 2025 LACEN</p>
             <p>Governo do Estado de Sergipe</p>
           </div>
           
@@ -181,24 +131,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const newsletterEmail = ref('');
-const isSubscribing = ref(false);
-
-async function subscribeNewsletter() {
-  if (!newsletterEmail.value) return;
-  
-  isSubscribing.value = true;
-  
-  // Simular API call
-  setTimeout(() => {
-    console.log('Newsletter subscription:', newsletterEmail.value);
-    newsletterEmail.value = '';
-    isSubscribing.value = false;
-    // Aqui era bom adicionar uma notificação de sucesso
-  }, 1500);
-}
 </script>
 
 <style scoped>
@@ -385,147 +317,6 @@ async function subscribeNewsletter() {
     flex-shrink: 0;
   }
 
-  /* Gallery Section */
-  .footer-gallery {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(2, 145, 211, 0.1);
-  }
-
-  .gallery-heading {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 1.5rem 0;
-    text-align: center;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-  }
-
-  .gallery-item {
-    aspect-ratio: 1;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #94a3b8;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-item:hover .gallery-placeholder {
-    background: linear-gradient(135deg, #0291d3, #0369a1);
-    color: white;
-    transform: scale(1.05);
-  }
-
-  /* Newsletter Section */
-  .newsletter-section {
-    padding: 2.5rem 0;
-    background: linear-gradient(135deg, rgba(2, 145, 211, 0.05), rgba(6, 182, 212, 0.05));
-    border-radius: 20px;
-    margin: 2rem 0;
-  }
-
-  .newsletter-content {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .newsletter-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 0.5rem 0;
-  }
-
-  .newsletter-description {
-    color: #64748b;
-    font-size: 0.875rem;
-    margin: 0 0 2rem 0;
-    line-height: 1.6;
-  }
-
-  .newsletter-form {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .newsletter-input-group {
-    display: flex;
-    gap: 0.5rem;
-    background: white;
-    padding: 0.25rem;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(2, 145, 211, 0.1);
-  }
-
-  .newsletter-input {
-    flex: 1;
-    border: none;
-    background: none;
-    padding: 0.875rem 1.25rem;
-    font-size: 0.875rem;
-    outline: none;
-    color: #1e293b;
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .newsletter-input::placeholder {
-    color: #94a3b8;
-  }
-
-  .newsletter-button {
-    background: linear-gradient(135deg, #0291d3, #0369a1);
-    color: white;
-    border: none;
-    padding: 0.875rem 1.5rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .newsletter-button:hover:not(:disabled) {
-    background: linear-gradient(135deg, #0369a1, #0291d3);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(2, 145, 211, 0.4);
-  }
-
-  .newsletter-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .loading-spinner-small {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s linear infinite;
-  }
-
   @keyframes spin {
     to {
       transform: rotate(360deg);
@@ -619,28 +410,6 @@ async function subscribeNewsletter() {
       grid-template-columns: repeat(3, 1fr);
     }
     
-    .newsletter-section {
-      padding: 2rem 1rem;
-      margin: 1.5rem 0;
-    }
-    
-    .newsletter-input-group {
-      flex-direction: column;
-      gap: 0.75rem;
-      padding: 1rem;
-      border-radius: 16px;
-    }
-    
-    .newsletter-input {
-      padding: 1rem;
-      text-align: center;
-    }
-    
-    .newsletter-button {
-      border-radius: 12px;
-      padding: 1rem;
-    }
-    
     .footer-bottom-content {
       flex-direction: column;
       text-align: center;
@@ -667,10 +436,6 @@ async function subscribeNewsletter() {
     
     .logo-text {
       font-size: 1.5rem;
-    }
-    
-    .newsletter-heading {
-      font-size: 1.25rem;
     }
     
     .footer-bottom-links {
