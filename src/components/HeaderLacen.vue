@@ -25,9 +25,6 @@
               <a href="/professional" class="nav-link">Profissionais</a>
             </li>
             <li class="nav-item">
-              <a href="/faq" class="nav-link">Perguntas Frequentes</a>
-            </li>
-            <li class="nav-item">
               <a href="/contact" class="nav-link">Contato</a>
             </li>
           </ul>
@@ -69,7 +66,6 @@
           </template>
 
           <template v-else>
-            <a href="#" class="btn-secondary">Criar Conta</a>
             <button class="btn-primary" @click="openModal">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
