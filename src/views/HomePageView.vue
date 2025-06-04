@@ -2,9 +2,7 @@
   <div class="homepage">
     <main class="main-content">
       <HeroLacen />
-      <LatestNewsLacen />
       <FAQLacen />
-      <ContactLacen />
     </main>
   </div>
 </template>
@@ -13,18 +11,14 @@
   import { defineComponent } from 'vue';
 
   import HeroLacen from '@/components/HeroLacen.vue';
-  import LatestNewsLacen from '@/components/LatestNewsLacen.vue';
   import FAQLacen from '@/components/FAQLacen.vue';
-  import ContactLacen from '@/components/ContactLacen.vue';
 
   export default defineComponent({
     name: 'HomePageView',
 
     components: {
       HeroLacen,
-      LatestNewsLacen,
-      FAQLacen,
-      ContactLacen
+      FAQLacen
     }
   });
 </script>
