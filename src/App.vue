@@ -4,7 +4,7 @@
   <FooterLacen />
   <ScrollToTopButton />
   <VLibras 
-    :position="'left'" 
+    :position="'right'" 
     :avatar="'random'" 
     :opacity="1.0" 
   />
