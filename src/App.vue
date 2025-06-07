@@ -3,6 +3,7 @@
   <router-view></router-view>
   <FooterLacen />
   <ScrollToTopButton />
+  <DarkModeLacen />
   <VLibras 
     :position="'right'" 
     :avatar="'random'" 
@@ -14,6 +15,7 @@
   import FooterLacen from './components/FooterLacen.vue';
   import HeaderLacen from './components/HeaderLacen.vue';
   import ScrollToTopButton from './components/ScrollToTopButton.vue';
+  import DarkModeLacen from './components/DarkModeLacen.vue';
 
   export default {
     name: 'App',
@@ -21,7 +23,8 @@
     components: {
       HeaderLacen,
       FooterLacen,
-      ScrollToTopButton
+      ScrollToTopButton,
+      DarkModeLacen
     },
 
     data: () => ({

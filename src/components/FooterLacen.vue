@@ -38,11 +38,11 @@
           <div class="footer-column">
             <h3 class="footer-heading">Atendimento</h3>
             <ul class="footer-nav">
-              <li><a href="#" class="footer-link">Central de Atendimento</a></li>
-              <li><a href="#" class="footer-link">Perguntas Frequentes</a></li>
-              <li><a href="#" class="footer-link">Ouvidoria</a></li>
-              <li><a href="#" class="footer-link">Acessibilidade</a></li>
-              <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+              <li><a href="https://www.linkedin.com/in/marcos-grocha/" class="footer-link">Central de Atendimento</a></li>
+              <li><a href="https://www.linkedin.com/in/marcos-grocha/" class="footer-link">Perguntas Frequentes</a></li>
+              <li><a href="https://www.linkedin.com/in/marcos-grocha/" class="footer-link">Ouvidoria</a></li>
+              <li><a href="https://www.linkedin.com/in/marcos-grocha/" class="footer-link">Acessibilidade</a></li>
+              <li><a href="https://www.linkedin.com/in/marcos-grocha/" class="footer-link">Política de Privacidade</a></li>
             </ul>
           </div>
 
@@ -88,11 +88,11 @@
           </div>
           
           <div class="footer-bottom-links">
-            <a href="#" class="bottom-link">Governo do Estado de Sergipe</a>
+            <a href="https://www.linkedin.com/in/marcos-grocha/" class="bottom-link">Governo do Estado de Sergipe</a>
           </div>
           
           <div class="gov-links">
-            <a href="#" class="gov-link">
+            <a href="https://www.linkedin.com/in/marcos-grocha/" class="gov-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
@@ -118,10 +118,11 @@
   }
 
   .footer {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: var(--light-gradient);
     font-family: 'Roboto', sans-serif;
     margin-top: 4rem;
     position: relative;
+    transition: var(--transition-all);
   }
 
   .footer::before {
@@ -131,7 +132,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #0291d3, transparent);
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
   }
 
   .footer-container {
@@ -146,7 +147,7 @@
     grid-template-columns: 1.5fr 3fr;
     gap: 3rem;
     padding: 3rem 0;
-    border-bottom: 1px solid rgba(2, 145, 211, 0.1);
+    border-bottom: 1px solid var(--gray-200);
   }
 
   /* Brand Section */
@@ -172,16 +173,17 @@
   .logo-text {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #0291d3;
+    color: var(--primary-color);
     margin: 0;
     letter-spacing: -0.02em;
   }
 
   .footer-description {
-    color: #64748b;
+    color: var(--gray-600);
     line-height: 1.6;
     font-size: 0.875rem;
     margin: 0;
+    transition: var(--transition-colors);
   }
 
   .social-links {
@@ -195,19 +197,21 @@
     justify-content: center;
     width: 44px;
     height: 44px;
-    background: white;
+    background: var(--white);
     border-radius: 12px;
-    color: #64748b;
+    color: var(--gray-600);
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: var(--transition-all);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
   }
 
   .social-link:hover {
-    background: #0291d3;
-    color: white;
+    background: var(--primary-color);
+    color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(2, 145, 211, 0.3);
+    border-color: var(--primary-color);
   }
 
   /* Links Section */
@@ -226,9 +230,10 @@
   .footer-heading {
     font-size: 1rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--gray-900);
     margin: 0;
     margin-bottom: 0.5rem;
+    transition: var(--transition-colors);
   }
 
   .footer-nav {
@@ -241,16 +246,16 @@
   }
 
   .footer-link {
-    color: #64748b;
+    color: var(--gray-600);
     text-decoration: none;
     font-size: 0.875rem;
-    transition: all 0.2s ease;
+    transition: var(--transition-all);
     position: relative;
     padding-left: 0;
   }
 
   .footer-link:hover {
-    color: #0291d3;
+    color: var(--primary-color);
     padding-left: 0.5rem;
   }
 
@@ -262,7 +267,7 @@
     transform: translateY(-50%);
     width: 0;
     height: 2px;
-    background: #0291d3;
+    background: var(--primary-color);
     transition: width 0.2s ease;
   }
 
@@ -281,14 +286,15 @@
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    color: #64748b;
+    color: var(--gray-600);
     font-size: 0.875rem;
     line-height: 1.5;
+    transition: var(--transition-colors);
   }
 
   .contact-item svg {
     margin-top: 0.125rem;
-    color: #0291d3;
+    color: var(--primary-color);
     flex-shrink: 0;
   }
 
@@ -300,10 +306,11 @@
 
   /* Bottom Footer */
   .footer-bottom {
-    background: linear-gradient(135deg, #1e293b, #334155);
-    color: white;
+    background: var(--gray-800);
+    color: var(--white);
     padding: 1.5rem 0;
     margin: 0 -1rem;
+    transition: var(--transition-all);
   }
 
   .footer-bottom-content {
@@ -319,8 +326,9 @@
 
   .copyright {
     font-size: 0.75rem;
-    color: #cbd5e1;
+    color: var(--gray-400);
     line-height: 1.4;
+    transition: var(--transition-colors);
   }
 
   .copyright p {
@@ -334,14 +342,14 @@
   }
 
   .bottom-link {
-    color: #cbd5e1;
+    color: var(--gray-400);
     text-decoration: none;
     font-size: 0.75rem;
-    transition: color 0.2s ease;
+    transition: var(--transition-colors);
   }
 
   .bottom-link:hover {
-    color: white;
+    color: var(--white);
   }
 
   .gov-links {
@@ -353,19 +361,36 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #cbd5e1;
+    color: var(--gray-400);
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--gray-700);
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: var(--transition-all);
+    border: 1px solid var(--gray-600);
   }
 
   .gov-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: var(--gray-600);
+    color: var(--white);
+    border-color: var(--gray-500);
+  }
+
+  /* Estilos específicos para modo escuro */
+  :root.dark-theme .footer-bottom {
+    background: var(--gray-900);
+  }
+
+  :root.dark-theme .gov-link {
+    background: var(--gray-800);
+    border-color: var(--gray-700);
+  }
+
+  :root.dark-theme .gov-link:hover {
+    background: var(--gray-700);
+    border-color: var(--gray-600);
   }
 
   /* Mobile Responsive (tentar dar atenção ao tal do MF)*/
