@@ -4,6 +4,7 @@
   <FooterLacen />
   <ScrollToTopButton />
   <DarkModeLacen />
+  <FontSizeLacen />
   <VLibras 
     :position="'right'" 
     :avatar="'random'" 
@@ -16,6 +17,7 @@
   import HeaderLacen from './components/HeaderLacen.vue';
   import ScrollToTopButton from './components/ScrollToTopButton.vue';
   import DarkModeLacen from './components/DarkModeLacen.vue';
+  import FontSizeLacen from './components/FontSizeLacen.vue';
 
   export default {
     name: 'App',
@@ -24,7 +26,8 @@
       HeaderLacen,
       FooterLacen,
       ScrollToTopButton,
-      DarkModeLacen
+      DarkModeLacen,
+      FontSizeLacen
     },
 
     data: () => ({
