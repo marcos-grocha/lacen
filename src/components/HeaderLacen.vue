@@ -313,14 +313,14 @@
   }
 
   .header {
-    padding: 0.75rem 0;
+    padding: var(--spacing-3) 0;
     font-family: var(--font-family);
   }
 
   .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 var(--spacing-4);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -341,7 +341,7 @@
   .logo-content {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--spacing-3);
     transition: var(--transition-transform);
   }
 
@@ -356,7 +356,7 @@
   }
 
   .logo-text {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     color: var(--primary-color);
     margin: 0;
@@ -373,7 +373,7 @@
   .nav-list {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: var(--spacing-8);
     margin: 0;
     padding: 0;
   }
@@ -381,9 +381,9 @@
   .nav-link {
     text-decoration: none;
     color: var(--gray-700);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    padding: 0.5rem 0;
+    padding: var(--spacing-2) 0;
     position: relative;
     transition: var(--transition-all);
   }
@@ -422,21 +422,21 @@
   .actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--spacing-4);
   }
 
   .btn-primary {
     background: var(--primary-gradient);
     color: var(--white);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: var(--spacing-3) var(--spacing-6);
     border-radius: var(--border-radius-xl);
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     font-weight: var(--font-semibold);
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     transition: var(--transition-all);
     box-shadow: 0 2px 8px rgba(2, 145, 211, 0.3);
     font-family: var(--font-family);
@@ -451,9 +451,9 @@
   .btn-secondary {
     text-decoration: none;
     color: var(--gray-700);
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    padding: 0.75rem 1rem;
+    padding: var(--spacing-3) var(--spacing-4);
     border-radius: var(--border-radius-xl);
     transition: var(--transition-all);
     background: var(--gray-100);
@@ -478,8 +478,8 @@
   }
 
   .btn-sample {
-    font-size: 0.8rem;
-    padding: 0.6rem 1.2rem;
+    font-size: var(--text-xs);
+    padding: var(--spacing-2-5) var(--spacing-5);
   }
 
   /* Mobile Button Styles */
@@ -489,7 +489,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     width: 100%;
     text-align: left;
     font-family: var(--font-family);
@@ -519,7 +519,7 @@
   .mobile-profile-link {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     color: var(--gray-700);
     transition: var(--transition-colors);
   }
@@ -540,8 +540,8 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
     border-radius: var(--border-radius-xl);
     transition: var(--transition-all);
   }
@@ -611,10 +611,10 @@
   .dropdown-item {
     display: block;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: var(--spacing-3) var(--spacing-4);
     color: var(--gray-700);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     border: none;
     background: none;
     text-align: left;
@@ -648,7 +648,7 @@
   }
 
   .dropdown-divider {
-    margin: 0.5rem 0;
+    margin: var(--spacing-2) 0;
     border: none;
     border-top: 1px solid var(--gray-200);
   }
@@ -678,7 +678,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: var(--spacing-2);
     border-radius: var(--border-radius);
     color: var(--gray-700);
     transition: var(--transition-all);
@@ -713,7 +713,7 @@
     justify-content: center;
     align-items: center;
     z-index: var(--z-modal);
-    padding: 1rem;
+    padding: var(--spacing-4);
   }
 
   .modal-container {
@@ -732,7 +732,7 @@
   }
 
   .modal-header {
-    padding: 2rem;
+    padding: var(--spacing-8);
     text-align: center;
     position: relative;
     background: linear-gradient(135deg, rgba(2, 145, 211, 0.05), rgba(6, 182, 212, 0.05));
@@ -744,10 +744,10 @@
   }
 
   .modal-title {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     font-weight: var(--font-semibold);
     color: var(--gray-900);
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 var(--spacing-2) 0;
     font-family: var(--font-family);
   }
 
@@ -758,7 +758,7 @@
 
   .modal-subtitle {
     color: var(--gray-500);
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     margin: 0;
     font-family: var(--font-family);
   }
@@ -770,12 +770,12 @@
 
   .modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: var(--spacing-2);
     border-radius: var(--border-radius);
     color: var(--gray-500);
     transition: var(--transition-all);
@@ -799,19 +799,19 @@
 
   /* Form Styles */
   .modal-form {
-    padding: 0 2rem 2rem;
+    padding: 0 var(--spacing-8) var(--spacing-8);
   }
 
   .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-6);
   }
 
   .form-label {
     display: block;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     font-weight: var(--font-medium);
     color: var(--gray-700);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-2);
     font-family: var(--font-family);
   }
 
@@ -826,7 +826,7 @@
 
   .input-icon {
     position: absolute;
-    left: 1rem;
+    left: var(--spacing-4);
     top: 50%;
     transform: translateY(-50%);
     color: var(--gray-400);
@@ -835,10 +835,10 @@
 
   .form-input {
     width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) var(--spacing-12);
     border: 2px solid var(--gray-200);
     border-radius: var(--border-radius-xl);
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     background: var(--gray-50);
     transition: var(--transition-all);
     box-sizing: border-box;
@@ -870,24 +870,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-8);
   }
 
   .checkbox-wrapper {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     cursor: pointer;
   }
 
   .checkbox-wrapper input[type="checkbox"] {
-    width: 1rem;
-    height: 1rem;
+    width: var(--spacing-4);
+    height: var(--spacing-4);
     accent-color: var(--primary-color);
   }
 
   .checkbox-label {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     color: var(--gray-700);
     font-family: var(--font-family);
   }
@@ -900,7 +900,7 @@
   .forgot-password {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     font-weight: var(--font-medium);
     transition: var(--transition-colors);
     font-family: var(--font-family);
@@ -912,19 +912,19 @@
 
   .btn-login {
     width: 100%;
-    padding: 1rem;
+    padding: var(--spacing-4);
     background: var(--primary-gradient);
     color: var(--white);
     border: none;
     border-radius: var(--border-radius-xl);
-    font-size: 1rem;
+    font-size: var(--text-base);
     font-weight: var(--font-semibold);
     cursor: pointer;
     transition: var(--transition-all);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     font-family: var(--font-family);
   }
 
@@ -970,7 +970,7 @@
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .header-container {
-      padding: 0 1rem;
+      padding: 0 var(--spacing-4);
     }
     
     .actions .btn-primary,
@@ -1002,7 +1002,7 @@
     .nav-list {
       flex-direction: column;
       gap: 0;
-      padding: 1rem;
+      padding: var(--spacing-4);
     }
     
     .nav-item {
@@ -1020,14 +1020,14 @@
     
     .nav-link {
       display: block;
-      padding: 1rem 0;
+      padding: var(--spacing-4) 0;
     }
 
     /* Mobile Actions - Show on mobile */
     .mobile-actions {
       display: block;
-      margin-top: 1rem;
-      padding-top: 1rem;
+      margin-top: var(--spacing-4);
+      padding-top: var(--spacing-4);
       border-top: 1px solid var(--gray-200);
     }
 
@@ -1050,8 +1050,8 @@
     }
 
     .mobile-logout {
-      margin-top: 0.5rem;
-      padding-top: 0.5rem;
+      margin-top: var(--spacing-2);
+      padding-top: var(--spacing-2);
       border-top: 1px solid rgba(220, 38, 38, 0.1) !important;
     }
 
@@ -1065,32 +1065,32 @@
     }
     
     .logo-text {
-      font-size: 1.25rem;
+      font-size: var(--text-xl);
     }
     
     .modal-container {
-      margin: 1rem;
+      margin: var(--spacing-4);
       max-width: none;
     }
     
     .modal-header {
-      padding: 1.5rem;
+      padding: var(--spacing-6);
     }
     
     .modal-form {
-      padding: 0 1.5rem 1.5rem;
+      padding: 0 var(--spacing-6) var(--spacing-6);
     }
   }
 
   @media (max-width: 480px) {
     .form-options {
       flex-direction: column;
-      gap: 1rem;
+      gap: var(--spacing-4);
       align-items: flex-start;
     }
 
     .logo-text {
-      font-size: 1.1rem;
+      font-size: var(--text-lg);
     }
 
     .logo-image {
