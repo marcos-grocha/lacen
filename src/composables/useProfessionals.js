@@ -5,7 +5,7 @@ export function useProfessionals() {
     { 
       id: 1, 
       name: 'Fulano Ciclano 1', 
-      role: 'Biomédico',
+      role: 'Porteiro',
       photo: new URL('@/assets/img/perfil-user/homem-default.png', import.meta.url).href,
       bio: 'Profissional especializado em análises clínicas, com mais de 10 anos de experiência na área de diagnóstico laboratorial e controle de qualidade.',
       website: 'https://exemplo.com',
@@ -13,9 +13,9 @@ export function useProfessionals() {
     },
     { 
       id: 2, 
-      name: 'Fulano Ciclano 2', 
+      name: 'Fulana Ciclana 2', 
       role: 'Biomédica',
-      photo: new URL('@/assets/img/perfil-user/mulher-default.png', import.meta.url).href,
+      photo: new URL('@/assets/img/perfil-user/perfil-mulher.png', import.meta.url).href,
       bio: 'Especialista em biologia molecular e microbiologia, com foco em pesquisas inovadoras e desenvolvimento de novos métodos diagnósticos.',
       email: 'fulano2@fsph.se.gov.br'
     },
@@ -32,7 +32,7 @@ export function useProfessionals() {
       id: 4, 
       name: 'Fulano Ciclano 4', 
       role: 'Biomédico',
-      photo: 'https://via.placeholder.com/300x400',
+      photo: new URL('@/assets/img/perfil-user/perfil-mulher.png', import.meta.url).href,
       bio: '',
       email: 'fulano4@fsph.se.gov.br'
     },
@@ -57,7 +57,7 @@ export function useProfessionals() {
       id: 7, 
       name: 'Fulano Ciclano 7', 
       role: 'Biomédico',
-      photo: 'https://via.placeholder.com/300x400',
+      photo: new URL('@/assets/img/perfil-user/perfil-mulher.png', import.meta.url).href,
       bio: '',
       email: 'fulano7@fsph.se.gov.br'
     },
