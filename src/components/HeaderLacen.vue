@@ -32,7 +32,7 @@
             <div class="mobile-actions">
               <template v-if="isLoggedIn">
                 <li class="nav-item mobile-action-item">
-                  <button class="nav-link mobile-btn btn-sample-mobile">
+                  <button class="nav-link mobile-btn btn-sample-mobile" @click="openSampleModal">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                       <polyline points="14,2 14,8 20,8"></polyline>
@@ -91,7 +91,7 @@
         
         <div class="actions">
           <template v-if="isLoggedIn">
-            <button class="btn-primary btn-sample">
+            <button class="btn-primary btn-sample" @click="openSampleModal">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14,2 14,8 20,8"></polyline>
@@ -152,19 +152,32 @@
     v-model:showModal="showModal" 
     @login-success="handleLoginSuccess" 
   />
+
+  <!-- Componente de Cadastro de Amostras -->
+  <HeaderLacenAmostras 
+    v-model:showModal="showSampleModal" 
+    @sample-registered="handleSampleRegistered" 
+  />
 </template>
 
 <script setup>
   import { ref, onMounted, onUnmounted } from 'vue';
   import HeaderLacenLogin from './HeaderLacenLogin.vue';
+  import HeaderLacenAmostras from './HeaderLacenAmostras.vue';
 
   const isLoggedIn = ref(false);
   const showModal = ref(false);
+  const showSampleModal = ref(false);
   const mobileMenuOpen = ref(false);
   const userMenuOpen = ref(false);
 
   function openModal() {
     showModal.value = true;
+    mobileMenuOpen.value = false;
+  }
+
+  function openSampleModal() {
+    showSampleModal.value = true;
     mobileMenuOpen.value = false;
   }
 
@@ -179,6 +192,11 @@
   function handleLoginSuccess(loginData) {
     console.log('Login realizado com sucesso:', loginData);
     isLoggedIn.value = true;
+  }
+
+  function handleSampleRegistered(sampleData) {
+    console.log('Amostra cadastrada:', sampleData);
+    // Processar os dados da amostra AQUI!!!
   }
 
   function logout() {

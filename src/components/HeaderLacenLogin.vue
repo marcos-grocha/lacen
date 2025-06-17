@@ -14,6 +14,7 @@
         </div>
         
         <form class="modal-form" @submit.prevent="performLogin">
+          <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
           <div class="form-group">
             <label for="email" class="form-label">E-mail</label>
             <div class="input-wrapper">
@@ -59,7 +60,7 @@
             <a href="#" class="forgot-password">Esqueceu sua senha?</a>
           </div>
           
-          <button type="submit" class="btn-login" :disabled="!email || !password">
+          <button type="submit" class="btn-login" :disabled="!email || !password || isLoading">
             <span v-if="!isLoading">Entrar</span>
             <div v-else class="loading-spinner"></div>
           </button>
@@ -71,6 +72,7 @@
 
 <script setup>
   import { ref, watch, defineProps, defineEmits } from 'vue';
+  import { useAuth } from '@/composables/useAuth';
 
   // Props
   const props = defineProps({
@@ -88,6 +90,7 @@
   const password = ref('');
   const rememberMe = ref(false);
   const isLoading = ref(false);
+  const { login, errorMessage } = useAuth();
 
   // Watcher para sincronizar o showModal com o prop
   watch(() => props.showModal, (newValue) => {
@@ -107,33 +110,49 @@
     password.value = '';
     rememberMe.value = false;
     isLoading.value = false;
+    errorMessage.value = '';
   }
 
   async function performLogin() {
     if (!email.value || !password.value) return;
-    
+
     isLoading.value = true;
-    
-    // Simular API call
-    setTimeout(() => {
-      console.log('Email:', email.value);
-      console.log('Password:', password.value);
-      console.log('Remember me:', rememberMe.value);
-      
-      const loginData = {
-        email: email.value,
-        password: password.value,
-        rememberMe: rememberMe.value
-      };
-      
-      emit('login-success', loginData);
+
+    try {
+      const user = await login(email.value, password.value);
+      if (user) {
+        const loginData = {
+          email: email.value,
+          password: password.value,
+          rememberMe: rememberMe.value
+        };
+
+        emit('login-success', loginData);
+        closeModal();
+      }
+    } catch (error) {
+      console.error('Erro no login:', error);
+    } finally {
       isLoading.value = false;
-      closeModal();
-    }, 1500);
+    }
   }
 </script>
 
 <style scoped>
+  .error-message {
+    color: var(--error-color);
+    background-color: var(--gray-50);
+    border: 1px solid var(--error-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-2) var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    font-size: var(--text-sm);
+    font-family: var(--font-family);
+    font-weight: var(--font-medium);
+    text-align: center;
+    transition: var(--transition-opacity);
+  }
+
   /* Modal Styles */
   .modal-overlay {
     position: fixed;
